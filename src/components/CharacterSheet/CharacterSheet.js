@@ -19,7 +19,7 @@ const CharacterSheet = (props) => {
     const checkActualStorage = () => {
       const checkFav = localStorage.getItem("characters");
 
-      let actualFavArray = null;
+      let actualFavArray = [];
       if (checkFav) {
         actualFavArray = JSON.parse(checkFav);
       }
@@ -59,19 +59,17 @@ const CharacterSheet = (props) => {
               thumbnail: item.thumbnail.path + "." + item.thumbnail.extension,
             };
 
-            if (actualFav) {
-              if (actualFav.length > 0) {
-                const actualFavCopy = [...actualFav];
-                actualFavCopy.push(newFav);
+            if (actualFav.length > 0) {
+              const actualFavCopy = [...actualFav];
+              actualFavCopy.push(newFav);
 
-                const newFavArray = JSON.stringify(actualFavCopy);
-                localStorage.setItem("characters", newFavArray);
+              const newFavArray = JSON.stringify(actualFavCopy);
+              localStorage.setItem("characters", newFavArray);
 
-                if (addFavorite === false) {
-                  setAddFavorite(true);
-                } else {
-                  setAddFavorite(false);
-                }
+              if (addFavorite === false) {
+                setAddFavorite(true);
+              } else {
+                setAddFavorite(false);
               }
             } else {
               let characterFav = [];
