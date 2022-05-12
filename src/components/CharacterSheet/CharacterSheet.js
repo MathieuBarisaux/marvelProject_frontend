@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const CharacterSheet = (props) => {
   const { item } = props;
 
-  const [actualFav, setActualFav] = useState();
+  const [actualFav, setActualFav] = useState([]);
   const [addFavorite, setAddFavorite] = useState(false);
 
   if (item.description.length > 130) {
@@ -16,14 +16,17 @@ const CharacterSheet = (props) => {
   }
 
   useEffect(() => {
-    const checkFav = localStorage.getItem("characters");
+    const checkActualStorage = () => {
+      const checkFav = localStorage.getItem("characters");
 
-    let actualFavArray = null;
-    if (checkFav) {
-      actualFavArray = JSON.parse(checkFav);
-    }
+      let actualFavArray = null;
+      if (checkFav) {
+        actualFavArray = JSON.parse(checkFav);
+      }
 
-    setActualFav(actualFavArray);
+      setActualFav(actualFavArray);
+    };
+    checkActualStorage();
   }, [addFavorite]);
 
   return (
@@ -56,17 +59,19 @@ const CharacterSheet = (props) => {
               thumbnail: item.thumbnail.path + "." + item.thumbnail.extension,
             };
 
-            if (actualFav.length > 0) {
-              const actualFavCopy = [...actualFav];
-              actualFavCopy.push(newFav);
+            if (actualFav) {
+              if (actualFav.length > 0) {
+                const actualFavCopy = [...actualFav];
+                actualFavCopy.push(newFav);
 
-              const newFavArray = JSON.stringify(actualFavCopy);
-              localStorage.setItem("characters", newFavArray);
+                const newFavArray = JSON.stringify(actualFavCopy);
+                localStorage.setItem("characters", newFavArray);
 
-              if (addFavorite === false) {
-                setAddFavorite(true);
-              } else {
-                setAddFavorite(false);
+                if (addFavorite === false) {
+                  setAddFavorite(true);
+                } else {
+                  setAddFavorite(false);
+                }
               }
             } else {
               let characterFav = [];

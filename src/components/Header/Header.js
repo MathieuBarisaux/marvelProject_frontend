@@ -41,6 +41,13 @@ const Header = () => {
 
           <div className="Nav__user">
             <i className="fas fa-user"></i>
+            <div>
+              <ul>
+                <li>
+                  <i class="fas fa-bookmark"></i> My favorites
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="Header__background--3"></div>
         </nav>

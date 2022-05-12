@@ -143,6 +143,38 @@ nav {
       color: variables.$marvel_red;
     }
 
+    > div {
+      background-color: #ec1d24;
+      position: absolute;
+      top: 7rem;
+      right: 1.25rem;
+      background-color: variables.$marvel_black;
+      border-radius: 0 0 15px 15px;
+      max-height: 0;
+      overflow: hidden;
+
+      li {
+        padding: 1rem;
+        white-space: nowrap;
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+
+        i {
+          color: #fff;
+          font-size: 1.6rem;
+          margin-right: 1rem;
+        }
+
+        &:hover {
+          background: #ec1d24;
+          box-shadow: inset 5px 5px 7px #a51419, inset -5px -5px 7px #ff262f;
+          border-radius: 20px 0 20px 0;
+          transition: 0.3s;
+        }
+      }
+    }
+
     &:hover {
       > i {
         color: #fff;
@@ -154,6 +186,11 @@ nav {
         width: 9rem;
         background: #ec1d24;
         box-shadow: inset 8px 8px 16px #a51419, inset -8px -8px 16px #ff262f;
+      }
+
+      > div {
+        max-height: 400px;
+        padding: 1rem;
       }
     }
   }
