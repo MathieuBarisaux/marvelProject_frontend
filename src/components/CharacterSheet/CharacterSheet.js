@@ -18,7 +18,8 @@ const CharacterSheet = (props) => {
     actualFav.map((i, index) => {
       if (item._id === i.id) {
         setIsPresent(index);
-        console.log("lol");
+      } else {
+        setIsPresent(false);
       }
     });
   }, [addFavorite]);
@@ -67,11 +68,7 @@ const CharacterSheet = (props) => {
               localStorage.setItem("characters", newFavArray);
             }
 
-            if (addFavorite === false) {
-              setAddFavorite(true);
-            } else {
-              setAddFavorite(false);
-            }
+            setAddFavorite(!addFavorite);
           }}
         >
           <i

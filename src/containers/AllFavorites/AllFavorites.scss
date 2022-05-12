@@ -1,0 +1,13 @@
+.AllFavorites {
+  h1 {
+    padding-top: 12rem;
+    font-size: 8rem;
+  }
+  h2 {
+    padding-top: 2rem;
+    font-size: 6rem;
+  }
+  &__characters {
+    font-size: 2rem;
+  }
+}

@@ -14,6 +14,7 @@ import Home from "./containers/Home/Home";
 import Characters from "./containers/Characters/Characters";
 import Comics from "./containers/Comics/Comics";
 import Character from "./containers/Character/Character";
+import AllFavorites from "./containers/AllFavorites/AllFavorites";
 
 function App() {
   const [actualFav, setActualFav] = useState([]);
@@ -44,6 +45,7 @@ function App() {
             element={
               <Characters
                 actualFav={actualFav}
+                setActualFav={setActualFav}
                 setAddFavorite={setAddFavorite}
                 addFavorite={addFavorite}
               />
@@ -51,6 +53,10 @@ function App() {
           />
           <Route path="/comics" element={<Comics />} />
           <Route path="/character/:characterId" element={<Character />} />
+          <Route
+            path="/myfavorites"
+            element={<AllFavorites actualFav={actualFav} />}
+          />
         </Routes>
       </Router>
     </>

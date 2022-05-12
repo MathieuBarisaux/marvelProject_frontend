@@ -43,9 +43,11 @@ const Header = () => {
             <i className="fas fa-user"></i>
             <div>
               <ul>
-                <li>
-                  <i class="fas fa-bookmark"></i> My favorites
-                </li>
+                <Link to={"/myfavorites"}>
+                  <li>
+                    <i class="fas fa-bookmark"></i> My favorites
+                  </li>
+                </Link>
               </ul>
             </div>
           </div>
