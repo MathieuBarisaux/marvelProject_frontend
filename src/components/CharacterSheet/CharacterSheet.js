@@ -1,15 +1,30 @@
 import "./CharacterSheet.scss";
 
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const CharacterSheet = (props) => {
   const { item } = props;
+
+  const [actualFav, setActualFav] = useState();
+  const [addFavorite, setAddFavorite] = useState(false);
 
   if (item.description.length > 130) {
     const newDescription = item.description.substring(0, 130) + "...";
 
     item.description = newDescription;
   }
+
+  useEffect(() => {
+    const checkFav = localStorage.getItem("characters");
+
+    let actualFavArray = null;
+    if (checkFav) {
+      actualFavArray = JSON.parse(checkFav);
+    }
+
+    setActualFav(actualFavArray);
+  }, [addFavorite]);
 
   return (
     <div className="CharacterSheet">
@@ -32,7 +47,42 @@ const CharacterSheet = (props) => {
           </div>
         </Link>
 
-        <div className="CharacterSheet__favorite">
+        <div
+          className="CharacterSheet__favorite"
+          onClick={() => {
+            const newFav = {
+              id: item._id,
+              name: item.name,
+              thumbnail: item.thumbnail.path + "." + item.thumbnail.extension,
+            };
+
+            if (actualFav.length > 0) {
+              const actualFavCopy = [...actualFav];
+              actualFavCopy.push(newFav);
+
+              const newFavArray = JSON.stringify(actualFavCopy);
+              localStorage.setItem("characters", newFavArray);
+
+              if (addFavorite === false) {
+                setAddFavorite(true);
+              } else {
+                setAddFavorite(false);
+              }
+            } else {
+              let characterFav = [];
+
+              characterFav.push(newFav);
+
+              const characterFavString = JSON.stringify(characterFav);
+              localStorage.setItem("characters", characterFavString);
+              if (addFavorite === false) {
+                setAddFavorite(true);
+              } else {
+                setAddFavorite(false);
+              }
+            }
+          }}
+        >
           <i className="fas fa-star"></i>
         </div>
       </div>
