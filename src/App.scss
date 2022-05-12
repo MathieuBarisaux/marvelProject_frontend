@@ -1,0 +1,56 @@
+@use "/src/variables";
+
+/* General rules */
+
+body {
+  box-sizing: border-box;
+  background-color: variables.$base_background;
+  color: variables.$base_color;
+  font-family: "Heebo", sans-serif;
+  height: 100vh;
+  max-height: 100vh;
+
+  h1 {
+    font-family: "kadwa", serif;
+    font-size: 4rem;
+  }
+
+  h4 {
+    font-size: 2rem;
+    font-family: "Ubuntu";
+  }
+}
+
+.container {
+  width: 95%;
+  max-width: 1280px;
+  margin: auto;
+}
+
+.shadow_left {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  width: 10rem;
+  height: 550px;
+  background: rgb(26, 26, 26);
+  background: linear-gradient(
+    90deg,
+    rgba(26, 26, 26, 1) 0%,
+    rgba(241, 243, 245, 0) 100%
+  );
+}
+
+.shadow_right {
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  width: 10rem;
+  height: 550px;
+  background: rgb(26, 26, 26);
+  background: linear-gradient(
+    270deg,
+    rgba(26, 26, 26, 1) 0%,
+    rgba(241, 243, 245, 0) 100%
+  );
+}

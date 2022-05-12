@@ -1,0 +1,118 @@
+.Character {
+  padding-top: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > img {
+    height: 70rem;
+    width: 50%;
+    object-fit: cover;
+    border-radius: 20px 0px 0 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes openRight {
+    0% {
+      margin-left: -30rem;
+    }
+    100% {
+      margin-left: -5rem;
+    }
+  }
+
+  &__infos {
+    width: 51%;
+    margin-left: -5rem;
+    margin-top: 10rem;
+    height: 60rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid rgba(121, 121, 121, 0.1);
+    animation: openRight 0.7s;
+
+    h3 {
+      padding: 2rem 2rem 0 2rem;
+      font-size: 4rem;
+    }
+
+    > p {
+      font-size: 1.5rem;
+      padding: 0rem 2rem 2rem 2rem;
+    }
+  }
+
+  &__comicsContainer {
+    margin: auto;
+    height: 44rem;
+    display: flex;
+    overflow-x: scroll;
+    padding-left: 2rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__comics {
+      margin-top: 0.5rem;
+      width: 30rem;
+      height: 43rem;
+      margin-right: 2rem;
+      position: relative;
+
+      &:hover {
+        margin-top: 0;
+        transition: 0.3s;
+      }
+
+      img {
+        width: 30rem;
+        height: 43rem;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+
+      > div {
+        width: 30rem;
+        height: 12rem;
+        z-index: 3;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 2px solid rgba(121, 121, 121, 0.1);
+        padding: 1rem;
+
+        p {
+          font-size: 2rem;
+        }
+
+        > div {
+          bottom: 1rem;
+          right: 1rem;
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #ec1d24;
+          box-shadow: inset 5px 5px 7px #a51419, inset -5px -5px 7px #ff262f;
+          border-radius: 50%;
+          cursor: pointer;
+
+          i {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

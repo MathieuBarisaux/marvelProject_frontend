@@ -1,0 +1,92 @@
+@use "/src/variables";
+
+@keyframes spiderMan {
+  0% {
+    top: -70vh;
+  }
+  100% {
+    top: -5rem;
+  }
+}
+
+.Home {
+  position: relative;
+  height: 100vh;
+  max-height: 100vh;
+  margin-top: 0;
+
+  h1 {
+    line-height: 11rem;
+    font-size: 10rem;
+    width: 100%;
+    border-bottom: 1px solid variables.$marvel_red;
+    padding-top: 16rem;
+    padding-bottom: 1rem;
+  }
+
+  img {
+    position: absolute;
+    z-index: -3;
+    filter: brightness(1);
+
+    &:nth-child(2) {
+      width: 20%;
+      position: absolute;
+      top: -5rem;
+      left: -8rem;
+      animation: spiderMan 0.7s;
+    }
+  }
+
+  &__choose {
+    margin-top: 3rem;
+    margin-left: -15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    div {
+      filter: brightness(0.3);
+      cursor: pointer;
+      width: 40%;
+      max-height: 50vh;
+
+      &:hover {
+        filter: brightness(1);
+        transition: 0.3s;
+        text-shadow: 4px 0 4px rgba(0, 0, 0, 0.2);
+      }
+
+      div {
+        width: 100%;
+        height: 50vh;
+        max-height: 50vh;
+        position: relative;
+
+        img {
+          position: absolute;
+          object-fit: contain;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+
+          &[alt="Comics"] {
+            width: 1000%;
+            left: -400%;
+          }
+
+          &[alt="Captain america"] {
+            width: 450%;
+            left: -65%;
+          }
+        }
+      }
+
+      h2 {
+        font-size: 4rem;
+        text-align: center;
+        font-family: "Ubuntu";
+      }
+    }
+  }
+}

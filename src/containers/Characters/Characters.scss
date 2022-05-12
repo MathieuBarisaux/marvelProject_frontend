@@ -1,0 +1,66 @@
+@use "/src/variables";
+
+.Characters {
+  h1 {
+    line-height: 11rem;
+    font-size: 10rem;
+    width: 100%;
+    margin-top: 1.8rem;
+    border-bottom: 1px solid variables.$marvel_red;
+  }
+
+  &__container {
+    margin-top: 2rem;
+    padding-left: 10%;
+    display: flex;
+    overflow-y: scroll;
+    height: 500px;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__paging {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      font-size: 3rem;
+      cursor: pointer;
+    }
+
+    p {
+      margin: 0 2rem;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    &__currentPage {
+      margin: 0 1rem;
+      background: #ec1d24;
+      box-shadow: inset 5px 5px 7px #a51419, inset -5px -5px 7px #ff262f;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+
+      p {
+        cursor: default;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1093px) {
+  .Characters {
+    h1 {
+      font-size: 8rem;
+    }
+  }
+}
