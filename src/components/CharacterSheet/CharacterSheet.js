@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const CharacterSheet = (props) => {
-  const { item } = props;
+  const { item, addFavorite, actualFav, setAddFavorite } = props;
 
-  const [actualFav, setActualFav] = useState([]);
-  const [addFavorite, setAddFavorite] = useState(false);
+  const [isPresent, setIsPresent] = useState(null);
 
   if (item.description.length > 130) {
     const newDescription = item.description.substring(0, 130) + "...";
@@ -16,17 +15,12 @@ const CharacterSheet = (props) => {
   }
 
   useEffect(() => {
-    const checkActualStorage = () => {
-      const checkFav = localStorage.getItem("characters");
-
-      let actualFavArray = [];
-      if (checkFav) {
-        actualFavArray = JSON.parse(checkFav);
+    actualFav.map((i, index) => {
+      if (item._id === i.id) {
+        setIsPresent(index);
+        console.log("lol");
       }
-
-      setActualFav(actualFavArray);
-    };
-    checkActualStorage();
+    });
   }, [addFavorite]);
 
   return (
@@ -59,34 +53,36 @@ const CharacterSheet = (props) => {
               thumbnail: item.thumbnail.path + "." + item.thumbnail.extension,
             };
 
-            if (actualFav.length > 0) {
+            if (!isPresent) {
               const actualFavCopy = [...actualFav];
               actualFavCopy.push(newFav);
 
               const newFavArray = JSON.stringify(actualFavCopy);
               localStorage.setItem("characters", newFavArray);
-
-              if (addFavorite === false) {
-                setAddFavorite(true);
-              } else {
-                setAddFavorite(false);
-              }
             } else {
-              let characterFav = [];
+              const actualFavCopy = [...actualFav];
+              actualFavCopy.splice(isPresent, 1);
 
-              characterFav.push(newFav);
+              const newFavArray = JSON.stringify(actualFavCopy);
+              localStorage.setItem("characters", newFavArray);
+            }
 
-              const characterFavString = JSON.stringify(characterFav);
-              localStorage.setItem("characters", characterFavString);
-              if (addFavorite === false) {
-                setAddFavorite(true);
-              } else {
-                setAddFavorite(false);
-              }
+            if (addFavorite === false) {
+              setAddFavorite(true);
+            } else {
+              setAddFavorite(false);
             }
           }}
         >
-          <i className="fas fa-star"></i>
+          <i
+            className={
+              isPresent ? (
+                <i class="fas fa-check"></i>
+              ) : (
+                <i class="fas fa-star"></i>
+              )
+            }
+          ></i>
         </div>
       </div>
     </div>

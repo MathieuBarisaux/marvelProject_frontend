@@ -7,7 +7,9 @@ import { useEffect, useState } from "react";
 import CharacterSheet from "../../components/CharacterSheet/CharacterSheet";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
-const Characters = () => {
+const Characters = (props) => {
+  const { actualFav, addFavorite, setAddFavorite } = props;
+
   const [allCharacters, setAllCharacters] = useState();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -52,7 +54,15 @@ const Characters = () => {
       <div className="Characters__container">
         {isLoading === false &&
           allCharacters.map((item) => {
-            return <CharacterSheet item={item} key={item._id} />;
+            return (
+              <CharacterSheet
+                item={item}
+                key={item._id}
+                actualFav={actualFav}
+                setAddFavorite={setAddFavorite}
+                addFavorite={addFavorite}
+              />
+            );
           })}
       </div>
       {searchCharacter === "" && (
