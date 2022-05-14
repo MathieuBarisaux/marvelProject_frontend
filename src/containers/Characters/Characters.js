@@ -8,12 +8,7 @@ import CharacterSheet from "../../components/CharacterSheet/CharacterSheet";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Characters = (props) => {
-  const {
-    actualFavCharacters,
-    addFavorite,
-    setAddFavorite,
-    setActualFavCharacters,
-  } = props;
+  const { actualFavCharacters, setActualFavCharacters } = props;
 
   const [allCharacters, setAllCharacters] = useState();
 

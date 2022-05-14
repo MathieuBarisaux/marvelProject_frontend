@@ -1,13 +1,90 @@
 .AllFavorites {
   h1 {
-    padding-top: 12rem;
+    padding-top: 11rem;
     font-size: 8rem;
   }
   h2 {
-    padding-top: 2rem;
-    font-size: 6rem;
+    padding-top: 0rem;
+    font-size: 5rem;
   }
   &__characters {
     font-size: 2rem;
+  }
+
+  &__characters {
+    display: flex;
+    overflow-x: scroll;
+    padding-left: 10%;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.FavBase__comics,
+.FavBase__characters {
+  position: relative;
+  margin-right: 1rem;
+
+  img {
+    object-fit: cover;
+
+    border-radius: 16px;
+  }
+
+  p {
+    font-size: 2rem;
+    position: absolute;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(121, 121, 121, 0.1);
+    bottom: 0;
+    padding: 1rem;
+  }
+}
+
+.FavBase__characters {
+  width: 250px;
+  height: 250px;
+  cursor: pointer;
+
+  &:hover {
+    width: 260px;
+    transition: 0.3s;
+
+    img,
+    p {
+      transition: 0.3s;
+      width: 260px;
+    }
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+  }
+
+  p {
+    width: 250px;
+  }
+}
+
+.FavBase__comics {
+  width: 220px;
+  height: 290px;
+
+  img {
+    width: 220px;
+    height: 290px;
+  }
+
+  p {
+    width: 210px;
   }
 }

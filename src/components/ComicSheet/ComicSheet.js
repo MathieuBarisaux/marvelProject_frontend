@@ -43,7 +43,7 @@ const ComicSheet = (props) => {
           onClick={() => {
             const newFav = {
               id: item._id,
-              name: item.name,
+              name: item.title,
               thumbnail: item.thumbnail.path + "." + item.thumbnail.extension,
             };
 

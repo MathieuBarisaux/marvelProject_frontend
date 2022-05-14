@@ -68,7 +68,12 @@ function App() {
           <Route path="/character/:characterId" element={<Character />} />
           <Route
             path="/myfavorites"
-            element={<AllFavorites actualFavCharacters={actualFavCharacters} />}
+            element={
+              <AllFavorites
+                actualFavCharacters={actualFavCharacters}
+                actualFavComics={actualFavComics}
+              />
+            }
           />
         </Routes>
       </Router>
