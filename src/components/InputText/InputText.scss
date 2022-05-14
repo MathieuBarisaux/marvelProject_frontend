@@ -1,0 +1,15 @@
+@use "/src/variables";
+
+.InputText {
+  margin-top: 3rem;
+
+  input {
+    width: 100%;
+    padding: 1rem 0;
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    border-bottom: 1px variables.$marvel_red solid;
+    color: white;
+  }
+}

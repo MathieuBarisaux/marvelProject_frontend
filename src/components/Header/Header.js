@@ -2,9 +2,13 @@ import "./Header.scss";
 
 import { Link, useLocation } from "react-router-dom";
 
+import Cookies from "js-cookie";
+
 import logo from "../../logo.ad6c786b.svg";
 
-const Header = () => {
+const Header = (props) => {
+  const { bearerToken, bearerPresent, setBearerPresent } = props;
+
   const { pathname } = useLocation();
 
   // TODO Faire l'animation sur le logo
@@ -48,6 +52,32 @@ const Header = () => {
                     <i className="fas fa-bookmark"></i> Favorites
                   </li>
                 </Link>
+                {bearerToken ? (
+                  <div className="Nav__user__buttons">
+                    <button
+                      className="Nav__user__buttons__disconnect"
+                      onClick={() => {
+                        Cookies.remove("bearerToken");
+                        setBearerPresent(!bearerPresent);
+                      }}
+                    >
+                      Disconect
+                    </button>
+                  </div>
+                ) : (
+                  <div className="Nav__user__buttons">
+                    <Link to={"/signup"}>
+                      <button className="Nav__user__buttons__signup">
+                        Signup
+                      </button>
+                    </Link>
+                    <Link to={"/login"}>
+                      <button className="Nav__user__buttons__login">
+                        Login
+                      </button>
+                    </Link>
+                  </div>
+                )}
               </ul>
             </div>
           </div>

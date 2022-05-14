@@ -1,0 +1,54 @@
+@use "/src/variables";
+
+.Signup {
+  width: 70%;
+  margin: auto;
+
+  h1 {
+    padding-top: 12rem;
+    text-align: center;
+    font-size: 7rem;
+  }
+
+  p {
+    margin-top: 3rem;
+    font-size: 2rem;
+    font-style: italic;
+  }
+
+  &__content {
+    margin-top: 2rem;
+    display: flex;
+    height: 100%;
+
+    > div {
+      width: 59%;
+      display: flex;
+      justify-content: center;
+    }
+
+    img {
+      width: 70%;
+      height: 70%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    form {
+      width: 40%;
+
+      button {
+        margin-top: 4rem;
+        font-size: 2rem;
+        padding: 1rem 3rem;
+        background: #ec1d24;
+        box-shadow: inset 5px 5px 7px #a51419, inset -5px -5px 7px #ff262f;
+        color: white;
+        font-family: "Ubuntu", sans-serif;
+        border-radius: 20px 0 20px 0;
+        cursor: pointer;
+        border: none;
+      }
+    }
+  }
+}
