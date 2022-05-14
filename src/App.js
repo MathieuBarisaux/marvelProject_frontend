@@ -17,22 +17,29 @@ import Character from "./containers/Character/Character";
 import AllFavorites from "./containers/AllFavorites/AllFavorites";
 
 function App() {
-  const [actualFav, setActualFav] = useState([]);
-  const [addFavorite, setAddFavorite] = useState(false);
+  const [actualFavCharacters, setActualFavCharacters] = useState([]);
+  const [actualFavComics, setActualFavComics] = useState([]);
 
   useEffect(() => {
     const checkActualStorage = () => {
-      const checkFav = localStorage.getItem("characters");
+      const checkFavCharacters = localStorage.getItem("characters");
+      const checkFavComics = localStorage.getItem("comics");
 
-      let actualFavArray = [];
-      if (checkFav) {
-        actualFavArray = JSON.parse(checkFav);
+      let actualFavCharactersArray = [];
+      if (checkFavCharacters) {
+        actualFavCharactersArray = JSON.parse(checkFavCharacters);
       }
 
-      setActualFav(actualFavArray);
+      let actualFavComicsArray = [];
+      if (checkFavComics) {
+        actualFavComicsArray = JSON.parse(checkFavComics);
+      }
+
+      setActualFavCharacters(actualFavCharactersArray);
+      setActualFavComics(actualFavComicsArray);
     };
     checkActualStorage();
-  }, [addFavorite]);
+  }, []);
 
   return (
     <>
@@ -44,18 +51,24 @@ function App() {
             path="/characters"
             element={
               <Characters
-                actualFav={actualFav}
-                setActualFav={setActualFav}
-                setAddFavorite={setAddFavorite}
-                addFavorite={addFavorite}
+                actualFavCharacters={actualFavCharacters}
+                setActualFavCharacters={setActualFavCharacters}
               />
             }
           />
-          <Route path="/comics" element={<Comics />} />
+          <Route
+            path="/comics"
+            element={
+              <Comics
+                actualFavComics={actualFavComics}
+                setActualFavComics={setActualFavComics}
+              />
+            }
+          />
           <Route path="/character/:characterId" element={<Character />} />
           <Route
             path="/myfavorites"
-            element={<AllFavorites actualFav={actualFav} />}
+            element={<AllFavorites actualFavCharacters={actualFavCharacters} />}
           />
         </Routes>
       </Router>

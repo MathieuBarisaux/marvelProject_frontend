@@ -8,7 +8,12 @@ import CharacterSheet from "../../components/CharacterSheet/CharacterSheet";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Characters = (props) => {
-  const { actualFav, addFavorite, setAddFavorite } = props;
+  const {
+    actualFavCharacters,
+    addFavorite,
+    setAddFavorite,
+    setActualFavCharacters,
+  } = props;
 
   const [allCharacters, setAllCharacters] = useState();
 
@@ -58,9 +63,8 @@ const Characters = (props) => {
               <CharacterSheet
                 item={item}
                 key={item._id}
-                actualFav={actualFav}
-                setAddFavorite={setAddFavorite}
-                addFavorite={addFavorite}
+                actualFavCharacters={actualFavCharacters}
+                setActualFavCharacters={setActualFavCharacters}
               />
             );
           })}

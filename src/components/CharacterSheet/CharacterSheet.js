@@ -1,12 +1,9 @@
 import "./CharacterSheet.scss";
 
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 const CharacterSheet = (props) => {
-  const { item, addFavorite, actualFav, setAddFavorite } = props;
-
-  const [isPresent, setIsPresent] = useState(null);
+  const { item, actualFavCharacters, setActualFavCharacters } = props;
 
   if (item.description.length > 130) {
     const newDescription = item.description.substring(0, 130) + "...";
@@ -14,15 +11,19 @@ const CharacterSheet = (props) => {
     item.description = newDescription;
   }
 
-  useEffect(() => {
-    actualFav.map((i, index) => {
-      if (item._id === i.id) {
-        setIsPresent(index);
-      } else {
-        setIsPresent(false);
+  const isAlreadyFavorite = (data) => {
+    if (data.length > 0) {
+      let indexFound = false;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].id === item._id) {
+          indexFound = i;
+        }
       }
-    });
-  }, [addFavorite]);
+      return indexFound;
+    } else {
+      return false;
+    }
+  };
 
   return (
     <div className="CharacterSheet">
@@ -54,30 +55,27 @@ const CharacterSheet = (props) => {
               thumbnail: item.thumbnail.path + "." + item.thumbnail.extension,
             };
 
-            if (!isPresent) {
-              const actualFavCopy = [...actualFav];
+            const actualFavCopy = [...actualFavCharacters];
+            if (isAlreadyFavorite(actualFavCharacters) === false) {
               actualFavCopy.push(newFav);
 
               const newFavArray = JSON.stringify(actualFavCopy);
               localStorage.setItem("characters", newFavArray);
+              setActualFavCharacters(actualFavCopy);
             } else {
-              const actualFavCopy = [...actualFav];
-              actualFavCopy.splice(isPresent, 1);
+              actualFavCopy.splice(isAlreadyFavorite(actualFavCharacters), 1);
 
               const newFavArray = JSON.stringify(actualFavCopy);
               localStorage.setItem("characters", newFavArray);
+              setActualFavCharacters(actualFavCopy);
             }
-
-            setAddFavorite(!addFavorite);
           }}
         >
           <i
             className={
-              isPresent ? (
-                <i class="fas fa-check"></i>
-              ) : (
-                <i class="fas fa-star"></i>
-              )
+              isAlreadyFavorite(actualFavCharacters) === false
+                ? "fas fa-star"
+                : "fas fa-check"
             }
           ></i>
         </div>

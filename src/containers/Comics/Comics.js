@@ -7,7 +7,9 @@ import { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ComicSheet from "../../components/ComicSheet/ComicSheet";
 
-const Comics = () => {
+const Comics = (props) => {
+  const { actualFavComics, setActualFavComics } = props;
+
   const [allComics, setAllComics] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -54,7 +56,14 @@ const Comics = () => {
         <div className="Comics__container">
           {isLoading === false &&
             allComics.map((item) => {
-              return <ComicSheet item={item} key={item._id} />;
+              return (
+                <ComicSheet
+                  item={item}
+                  key={item._id}
+                  actualFavComics={actualFavComics}
+                  setActualFavComics={setActualFavComics}
+                />
+              );
             })}
         </div>
         {searchComics === "" && (
