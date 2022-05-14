@@ -1,0 +1,28 @@
+@use "/src/variables";
+
+.Login {
+  h1 {
+    padding-top: 12rem;
+    text-align: center;
+    font-size: 7rem;
+  }
+
+  form {
+    width: 25%;
+    margin: auto;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 4rem;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    background: #ec1d24;
+    box-shadow: inset 5px 5px 7px #a51419, inset -5px -5px 7px #ff262f;
+    color: white;
+    font-family: "Ubuntu", sans-serif;
+    border-radius: 20px 0 20px 0;
+    cursor: pointer;
+    border: none;
+  }
+}

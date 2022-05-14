@@ -17,6 +17,7 @@ import Comics from "./containers/Comics/Comics";
 import Character from "./containers/Character/Character";
 import AllFavorites from "./containers/AllFavorites/AllFavorites";
 import Signup from "./containers/Signup/Signup";
+import Login from "./containers/Login/Login";
 
 function App() {
   const [actualFavCharacters, setActualFavCharacters] = useState([]);
@@ -96,6 +97,15 @@ function App() {
               <Signup
                 setBearerPresent={setBearerPresent}
                 bearerPresent={bearerPresent}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Login
+                setBearerPresent={setBearerPresent}
+                bearerToken={bearerToken}
               />
             }
           />
