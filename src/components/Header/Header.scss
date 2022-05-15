@@ -15,6 +15,10 @@ header {
   height: 70px;
   position: relative;
 
+  > i {
+    display: none;
+  }
+
   &__background--1 {
     content: " ";
     position: absolute;
@@ -233,6 +237,82 @@ nav {
         animation: openMenu 1s forwards;
         padding: 1rem;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    width: 100%;
+  }
+
+  .Header {
+    > i {
+      display: block;
+      font-size: 3rem;
+      margin-right: 2rem;
+      cursor: pointer;
+    }
+
+    nav {
+      display: none;
+
+      > i {
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
+        font-size: 4rem;
+      }
+
+      .Nav__separate {
+        display: none;
+      }
+
+      .Nav__user {
+        > i {
+          display: none;
+        }
+
+        > div {
+          display: block;
+          max-height: 400%;
+          position: initial;
+          min-width: fit-content;
+          background-color: none;
+        }
+
+        &__buttons {
+          flex-direction: column;
+
+          button {
+            margin-top: 2rem;
+          }
+        }
+
+        &:hover {
+          > div {
+            animation: none;
+          }
+        }
+      }
+    }
+
+    .mobileHeader {
+      display: block;
+      position: fixed;
+      height: 100vh;
+      margin: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      background-color: variables.$marvel_black;
+      z-index: 1000;
     }
   }
 }

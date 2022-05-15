@@ -53,6 +53,7 @@ const Comics = (props) => {
 
         <div className="shadow_left"></div>
         <div className="shadow_right"></div>
+
         <div className="Comics__container">
           {isLoading === false &&
             allComics.map((item) => {

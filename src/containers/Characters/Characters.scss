@@ -57,10 +57,18 @@
   }
 }
 
-@media screen and (max-width: 1093px) {
+@media (max-width: 1093px) {
   .Characters {
     h1 {
-      font-size: 8rem;
+      font-size: 6rem;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Characters {
+    h1 {
+      font-size: 5rem;
     }
   }
 }

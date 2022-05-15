@@ -52,3 +52,26 @@
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .Signup {
+    width: 90%;
+    h1 {
+      font-size: 6rem;
+      text-align: left;
+      line-height: 9rem;
+    }
+
+    &__content {
+      display: block;
+      form {
+        width: 90%;
+        margin: auto;
+      }
+
+      img {
+        display: none;
+      }
+    }
+  }
+}

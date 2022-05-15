@@ -90,3 +90,70 @@
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  @keyframes spiderMan {
+    0% {
+      top: -70vh;
+    }
+    100% {
+      top: 0rem;
+    }
+  }
+
+  .Home {
+    h1 {
+      font-size: 7rem;
+    }
+
+    img {
+      position: absolute;
+      z-index: -3;
+      filter: brightness(1);
+
+      &:nth-child(2) {
+        width: 30%;
+        position: absolute;
+        top: 0rem;
+        right: 0rem;
+        left: auto;
+        animation: spiderMan 0.7s;
+      }
+    }
+
+    .Home__choose {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      margin-top: 3rem;
+
+      div {
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      img {
+        position: absolute;
+        object-fit: contain;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+
+        &[alt="Comics"] {
+          width: 600%;
+          left: -150%;
+        }
+
+        &[alt="Captain america"] {
+          width: 350%;
+          left: -5%;
+        }
+      }
+    }
+  }
+}

@@ -26,3 +26,19 @@
     border: none;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .Login {
+    width: 90%;
+    margin: auto;
+    h1 {
+      font-size: 6rem;
+      line-height: 8rem;
+      text-align: left;
+    }
+
+    form {
+      width: 100%;
+    }
+  }
+}

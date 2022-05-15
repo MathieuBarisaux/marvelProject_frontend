@@ -55,3 +55,11 @@ body {
     rgba(241, 243, 245, 0) 100%
   );
 }
+
+@media screen and (max-width: 900px) {
+  .shadow_left,
+  .shadow_right {
+    width: 4rem;
+    z-index: 3;
+  }
+}

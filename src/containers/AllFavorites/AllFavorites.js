@@ -1,5 +1,7 @@
 import "./AllFavorites.scss";
 
+import { Link } from "react-router-dom";
+
 const AllFavorites = (props) => {
   const { actualFavCharacters, actualFavComics } = props;
 
@@ -11,10 +13,12 @@ const AllFavorites = (props) => {
         {actualFavCharacters.length > 0 ? (
           actualFavCharacters.map((item) => {
             return (
-              <div className="FavBase__characters">
-                <img src={item.thumbnail} alt="" />
-                <p key={item.id}>{item.name}</p>
-              </div>
+              <Link to={`/character/${item.id}`} key={item.id}>
+                <div className="FavBase__characters">
+                  <img src={item.thumbnail} alt="" />
+                  <p key={item.id}>{item.name}</p>
+                </div>
+              </Link>
             );
           })
         ) : (
@@ -28,7 +32,7 @@ const AllFavorites = (props) => {
         {actualFavComics.length > 0 ? (
           actualFavComics.map((item) => {
             return (
-              <div className="FavBase__comics">
+              <div className="FavBase__comics" key={item.id}>
                 <img src={item.thumbnail} alt="" />
                 <p key={item.id}>{item.name}</p>
               </div>
