@@ -9,6 +9,7 @@ import Cookies from "js-cookie";
 
 // ** Components **
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 // ** Containers **
 import Home from "./containers/Home/Home";
@@ -110,6 +111,7 @@ function App() {
             }
           />
         </Routes>
+        <Footer />
       </Router>
     </>
   );

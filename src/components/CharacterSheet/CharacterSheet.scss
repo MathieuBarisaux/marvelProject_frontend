@@ -98,3 +98,12 @@
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .CharacterSheet {
+    &:hover {
+      margin-top: 0;
+      transition: 0;
+    }
+  }
+}

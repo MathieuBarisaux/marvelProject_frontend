@@ -18,7 +18,7 @@ const Home = () => {
 
         <img src={spiderMan} alt="SpiderMan" />
 
-        <div className="Home__choose">
+        <div className="Home__choose container">
           <Link to={"/characters"}>
             <div className="Home__choose__character">
               <div>

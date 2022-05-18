@@ -51,6 +51,7 @@ const Characters = (props) => {
 
       <div className="shadow_left"></div>
       <div className="shadow_right"></div>
+
       <div className="Characters__container">
         {isLoading === false &&
           allCharacters.map((item) => {

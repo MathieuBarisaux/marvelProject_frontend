@@ -1,6 +1,8 @@
 @use "/src/variables";
 
 .Characters {
+  padding-bottom: 3rem;
+
   h1 {
     line-height: 11rem;
     font-size: 10rem;
@@ -60,7 +62,7 @@
 @media (max-width: 1093px) {
   .Characters {
     h1 {
-      font-size: 6rem;
+      font-size: 7rem;
     }
   }
 }

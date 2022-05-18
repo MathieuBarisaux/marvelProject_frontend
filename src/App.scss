@@ -7,8 +7,6 @@ body {
   background-color: variables.$base_background;
   color: variables.$base_color;
   font-family: "Heebo", sans-serif;
-  height: 100vh;
-  max-height: 100vh;
   position: relative;
 
   h1 {
@@ -60,6 +58,6 @@ body {
   .shadow_left,
   .shadow_right {
     width: 4rem;
-    z-index: 3;
+    z-index: 1;
   }
 }
